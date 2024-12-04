@@ -1,0 +1,536 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اتصل بنا</title>
+ </head>
+ <body>
+   <html><head><base href=""><link href="css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+      <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Tajawal', sans-serif;
+      }
+      
+      body {
+        background-color: #1a1a1a; /* Dark background color */
+      }
+      
+      .navbar {
+        background: linear-gradient(45deg, #2b1055, #7597de);
+        padding: 1rem;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+      }
+      
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .search-container {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
+      
+      .nav-phone {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: white;
+        font-size: 1rem;
+        white-space: nowrap;
+      }
+      
+      .phone-icon {
+        width: 20px;
+        height: 20px;
+        fill: currentColor;
+      }
+      
+      @media (max-width: 768px) {
+        .nav-phone {
+          display: none;
+        }
+      }
+      
+      .search-form {
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+      
+      .search-input {
+        padding: 0.5rem 2.5rem 0.5rem 1rem;
+        border: none;
+        border-radius: 20px;
+        background: rgba(255,255,255,0.1);
+        color: white;
+        font-size: 1rem;
+        width: 200px;
+        transition: all 0.3s ease;
+        direction: rtl;
+      }
+      
+      .search-input::placeholder {
+        color: rgba(255,255,255,0.6);
+      }
+      
+      .search-input:focus {
+        outline: none;
+        background: rgba(255,255,255,0.2);
+        width: 250px;
+      }
+      
+      .search-button {
+        position: absolute;
+        left: 10px;
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .search-icon {
+        width: 20px;
+        height: 20px;
+        fill: currentColor;
+      }
+      
+      @media (max-width: 768px) {
+        .search-input {
+          width: 150px;
+        }
+        
+        .search-input:focus {
+          width: 180px;
+        }
+      }
+      
+      .logo {
+        color: white;
+        font-size: 1.5rem;
+        font-weight: 700;
+        text-decoration: none;
+      }
+      
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+      
+      .nav-links li a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.1rem;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        transition: all 0.4s ease;
+        position: relative;
+      }
+      
+      .nav-links li a:after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 50%;
+        background: linear-gradient(90deg, #ff00ff, #0000ff);
+        transition: all 0.4s ease;
+        transform: translateX(-50%);
+      }
+      
+      .nav-links li a:hover {
+        background: linear-gradient(45deg, rgba(255,0,255,0.2), rgba(0,0,255,0.2));
+        transform: translateY(-3px);
+      }
+      
+      .nav-links li a:hover:after {
+        width: 80%;
+      }
+      
+      .footer {
+        background: linear-gradient(45deg, #2b1055, #7597de);
+        color: white;
+        padding: 4rem 2rem 2rem;
+      }
+      
+      .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 3rem;
+      }
+      
+      .footer-section {
+        text-align: right;
+      }
+      
+      .footer-title {
+        color: #fff;
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+      }
+      
+      .footer-content {
+        color: #ccc;
+        line-height: 1.8;
+      }
+      
+      .footer-links {
+        list-style: none;
+      }
+      
+      .footer-links li {
+        margin-bottom: 0.8rem;
+      }
+      
+      .footer-links a {
+        color: #ccc;
+        text-decoration: none;
+        transition: all 0.4s ease;
+        position: relative;
+        padding-right: 20px;
+      }
+      
+      .footer-links a:before {
+        content: '←';
+        position: absolute;
+        right: 0;
+        opacity: 0;
+        transition: all 0.4s ease;
+      }
+      
+      .footer-links a:hover {
+        color: white;
+        padding-right: 25px;
+      }
+      
+      .footer-links a:hover:before {
+        opacity: 1;
+      }
+      
+      .footer-contact-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        justify-content: flex-end;
+      }
+      
+      .contact-icon {
+        width: 20px;
+        height: 20px;
+        fill: currentColor;
+      }
+      
+      .footer-social {
+        display: flex;
+        gap: 1rem;
+        justify-content: flex-end;
+        margin-top: 1.5rem;
+      }
+      
+      .social-icon {
+        width: 40px;
+        height: 40px;
+        padding: 10px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.1);
+        transition: all 0.4s ease;
+        transform-origin: center;
+      }
+      
+      .social-icon:hover {
+        background: linear-gradient(45deg, rgba(255,0,255,0.3), rgba(0,0,255,0.3));
+        transform: scale(1.1) rotate(8deg);
+      }
+      
+      .footer-bottom {
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        text-align: center;
+        color: #ccc;
+      }
+      
+      .whatsapp-button {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        background: #25d366;
+        border-radius: 50%;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        transition: all 0.3s ease;
+        animation: pulseWhatsApp 2s infinite;
+      }
+      
+      .whatsapp-button:hover {
+        transform: scale(1.1);
+        background: #22c15e;
+      }
+      
+      .whatsapp-icon {
+        width: 35px;
+        height: 35px;
+        fill: white;
+      }
+      
+      @keyframes pulseWhatsApp {
+        0% {
+          box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
+        }
+        70% {
+          box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+        }
+      }
+      
+      @media (max-width: 768px) {
+        .whatsapp-button {
+          width: 50px;
+          height: 50px;
+          bottom: 20px;
+          right: 20px;
+        }
+        
+        .whatsapp-icon {
+          width: 30px;
+          height: 30px;
+        }
+      }
+      
+      /* Modify the contact form container style */
+      .contact-form {
+        background: #2d2d2d !important; /* Darker background for form */
+        color: #ffffff !important; /* White text */
+      }
+      
+      /* Update form input and textarea styles */
+      .contact-form input,
+      .contact-form textarea {
+        background: #3d3d3d !important;
+        color: #ffffff !important;
+        border-color: #4d4d4d !important;
+      }
+      
+      .contact-form input::placeholder,
+      .contact-form textarea::placeholder {
+        color: #aaaaaa !important;
+      }
+      
+      /* Update form labels */
+      .contact-form label {
+        color: #ffffff !important;
+      }
+      
+      /* Update form title */
+      .contact-form h2 {
+        color: #ffffff !important;
+      }
+      </style>
+      </head>
+      <body>
+        <nav class="navbar">
+          <div class="nav-container">
+            <div class="search-container">
+              <a href="home.html" class="logo">
+                يمن براند
+              </a>
+              <div class="nav-phone">
+                <svg class="phone-icon" viewBox="0 0 24 24">
+                  <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                </svg>
+                <span>+967 775322729</span>
+              </div>
+              <form class="search-form" action="/search" method="GET">
+                <input type="search" class="search-input" placeholder="ابحث هنا..." aria-label="Search">
+                <button type="submit" class="search-button" aria-label="Search">
+                  <svg class="search-icon" viewBox="0 0 24 24">
+                    <path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"/>
+                  </svg>
+                </button>
+              </form>
+            </div>
+            <ul class="nav-links">
+              <li><a href="home.html">الرئيسية</a></li>
+              <li><a href="we yemen brand.html">من نحن</a></li>
+              <li><a href="work.html">أعمالنا</a></li>
+              <li><a href="home.html">خدماتنا</a></li>
+              <li><a href="buy.html">الأسعار</a></li>
+              <li><a href="conecte.html">اتصل بنا</a></li>
+            </ul>
+          </div>
+        </nav>
+      
+        <div style="margin: 100px auto 50px; max-width: 800px; padding: 20px;">
+          <form id="contactForm" class="contact-form" style="direction: rtl; padding: 30px; border-radius: 10px; box-shadow: 0 0 20px rgba(0,0,0,0.1);">
+            <h2 style="margin-bottom: 30px; text-align: center;">تواصل معنا</h2>
+            <div style="display: grid; gap: 20px;">
+              <div>
+                <label for="name" style="display: block; margin-bottom: 8px;">الاسم</label>
+                <input type="text" id="name" name="name" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 16px;">
+              </div>
+              
+              <div>
+                <label for="email" style="display: block; margin-bottom: 8px;">البريد الإلكتروني</label>
+                <input type="email" id="email" name="email" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 16px;">
+              </div>
+              
+              <div>
+                <label for="subject" style="display: block; margin-bottom: 8px;">الموضوع</label>
+                <input type="text" id="subject" name="subject" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 16px;">
+              </div>
+              
+              <div>
+                <label for="message" style="display: block; margin-bottom: 8px;">الرسالة</label>
+                <textarea id="message" name="message" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; height: 150px; resize: vertical; font-size: 16px;"></textarea>
+              </div>
+              
+              <button type="submit" style="background: linear-gradient(45deg, #2b1055, #7597de); color: white; padding: 12px 30px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; transition: transform 0.3s ease;">
+                إرسال الرسالة
+              </button>
+            </div>
+          </form>
+        </div>
+      
+        <footer class="footer">
+          <div class="footer-container">
+            <div class="footer-section">
+              <h3 class="footer-title">عن الشركة</h3>
+              <p class="footer-content">
+                شركة رائدة في مجال التكنولوجيا والحلول الرقمية، نقدم خدمات متكاملة لتطوير الأعمال ودعم النمو الرقمي لعملائنا.
+              </p>
+            </div>
+      
+            <div class="footer-section">
+              <h3 class="footer-title">روابط سريعة</h3>
+              <ul class="footer-links">
+                <li><a href="home.html">الرئيسية</a></li>
+                <li><a href="work.html">أعمالنا</a></li>
+                <li><a href="we yemen brand.html">من نحن</a></li>
+                <li><a href="conecte.html">اتصل بنا</a></li>
+              </ul>
+            </div>
+      
+            <div class="footer-section">
+              <h3 class="footer-title">تواصل معنا</h3>
+              <div class="footer-contact-item">
+                <span>صنعاء، اليمن</span>
+                <svg class="contact-icon" viewBox="0 0 24 24">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+              </div>
+              <div class="footer-contact-item">
+                <span>moatazail20252024@gmail.com</span>
+                <svg class="contact-icon" viewBox="0 0 24 24">
+                  <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+              </div>
+              <div class="footer-contact-item">
+                <span>+967 773512690 - 775322729</span>
+                <svg class="contact-icon" viewBox="0 0 24 24">
+                  <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                </svg>
+              </div>
+              <div class="footer-social">
+                <a href="https://facebook.com" target="_blank">
+                  <svg class="social-icon" viewBox="0 0 24 24">
+                    <path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/>
+                  </svg>
+                </a>
+                <a href="https://twitter.com" target="_blank">
+                  <svg class="social-icon" viewBox="0 0 24 24">
+                    <path d="M22.46 6C21.69 6.35 20.86 6.58 20 6.69C20.88 6.16 21.56 5.32 21.88 4.31C21.05 4.81 20.13 5.16 19.16 5.36C18.37 4.5 17.26 4 16 4C13.65 4 11.73 5.92 11.73 8.29C11.73 8.63 11.77 8.96 11.84 9.27C8.28 9.09 5.11 7.38 3 4.79C2.63 5.42 2.42 6.16 2.42 6.94C2.42 8.43 3.17 9.75 4.33 10.5C3.62 10.5 2.96 10.3 2.38 10C2.38 10 2.38 10 2.38 10.03C2.38 12.11 3.86 13.85 5.82 14.24C5.46 14.34 5.08 14.39 4.69 14.39C4.42 14.39 4.15 14.36 3.89 14.31C4.43 16 6 17.26 7.89 17.29C6.43 18.45 4.58 19.13 2.56 19.13C2.22 19.13 1.88 19.11 1.54 19.07C3.44 20.29 5.7 21 8.12 21C16 21 20.33 14.46 20.33 8.79C20.33 8.6 20.33 8.42 20.32 8.23C21.16 7.63 21.88 6.87 22.46 6Z"/>
+                  </svg>
+                </a>
+                <a href="https://linkedin.com" target="_blank">
+                  <svg class="social-icon" viewBox="0 0 24 24">
+                    <path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17A1.4 1.4 0 0 1 15.71 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19A1.69 1.69 0 0 0 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z"/>
+                  </svg>
+                </a>
+                <a href="https://instagram.com" target="_blank">
+                  <svg class="social-icon" viewBox="0 0 24 24">
+                    <path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7Z"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <p>جميع الحقوق محفوظة © 2024 يمن براند</p>
+          </div>
+        </footer>
+        
+        <a href="https://wa.me/967 775322729" class="whatsapp-button" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+          <svg class="whatsapp-icon" viewBox="0 0 24 24">
+            <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M8.53 7.33C8.37 7.33 8.1 7.39 7.87 7.64C7.65 7.89 7 8.5 7 9.71C7 10.93 7.89 12.1 8 12.27C8.14 12.44 9.76 14.94 12.25 16C12.84 16.27 13.3 16.42 13.66 16.53C14.25 16.72 14.79 16.69 15.22 16.63C15.7 16.56 16.68 16.03 16.89 15.45C17.1 14.87 17.1 14.38 17.04 14.27C16.97 14.17 16.81 14.11 16.56 14C16.31 13.86 15.09 13.26 14.87 13.18C14.64 13.1 14.5 13.06 14.31 13.3C14.15 13.55 13.67 14.11 13.53 14.27C13.38 14.44 13.24 14.46 13 14.34C12.74 14.21 11.94 13.95 11 13.11C10.26 12.45 9.77 11.64 9.62 11.39C9.5 11.15 9.61 11 9.73 10.89C9.84 10.78 10 10.6 10.1 10.45C10.23 10.31 10.27 10.2 10.35 10.04C10.43 9.87 10.39 9.73 10.33 9.61C10.27 9.5 9.77 8.26 9.56 7.77C9.36 7.29 9.16 7.35 9 7.34C8.86 7.34 8.7 7.33 8.53 7.33Z"/>
+          </svg>
+        </a>
+        
+        <script>
+          // Search functionality
+          document.querySelector('.search-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const searchTerm = document.querySelector('.search-input').value.trim();
+            if (searchTerm) {
+              console.log('Searching for:', searchTerm);
+            }
+          });
+      
+          document.querySelector('.search-input').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.trim();
+            if (searchTerm.length >= 2) {
+              console.log('Getting suggestions for:', searchTerm);
+            }
+          });
+      
+          document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+              name: document.getElementById('name').value,
+              email: document.getElementById('email').value,
+              subject: document.getElementById('subject').value,
+              message: document.getElementById('message').value,
+              to: 'moatazail20252024@gmail.com'
+            };
+      
+            // Here you would typically send this to your server
+            // For demonstration, we'll just console.log the data
+            console.log('Form submitted:', formData);
+            
+            // You can add this to actually send emails using a service like EmailJS or your backend
+            alert('شكراً لتواصلك معنا! سنرد عليك قريباً.');
+            this.reset();
+          });
+        </script>
+
+     </body>
+ </html>
